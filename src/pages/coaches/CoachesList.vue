@@ -1,6 +1,6 @@
 <template>
     <section>
-        <CoachFilter @change-filter="setFilters"></CoachFilter>
+        <CoachFilter @change-filter="setFilter"></CoachFilter>
     </section>
     <base-card>
     <Section>
@@ -53,7 +53,7 @@ export default {
                 if(this.activeFilters.backend && coach.areas.includes('backend')){
                     return true;
                 }
-                if(this.activeFilters.carrer && coach.areas.includes('carrer')){
+                if(this.activeFilters.career && coach.areas.includes('career')){
                     return true;
                 }
                 return false;
