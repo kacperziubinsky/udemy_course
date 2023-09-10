@@ -1,5 +1,6 @@
 <template>
-    <BaseDialog :show="!!error">
+    <div>
+    <BaseDialog :show="!!error" title="Error">
         <p>{{ error }}</p>
     </BaseDialog>
     <section>
@@ -29,6 +30,7 @@
         <h3 v-else>No coaches found.</h3>
     </Section>
     </base-card>
+    </div>
 </template>
 
 
