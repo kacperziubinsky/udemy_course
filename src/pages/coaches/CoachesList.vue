@@ -6,7 +6,7 @@
     <Section>
         <div class="controls">
             <base-button mode="outline">Refresh</base-button>
-            <base-button link to="/register">Register a coach</base-button>
+            <base-button v-if="!isCoach"  link to="/register">Register a coach</base-button>
         </div>
         <ul v-if="hasCoaches">
             <CoachIteam v-for="coach in filteredCoaches" :key="coach.id"
@@ -61,6 +61,9 @@ export default {
         },
         hasCoaches() {
             return this.$store.getters['coaches/hasCoaches'];
+        },
+        isCoach() {
+            return this.$store.getters['coaches/isCoach'];
         }
     },
     methods: {

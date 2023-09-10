@@ -11,6 +11,7 @@
                 <h2>Interested? Reach out now!</h2>
                 <base-button link :to="contactLink">Contact</base-button>
             </header>
+            <router-view></router-view>
         </base-card>
     </section>
     <section>
@@ -22,15 +23,16 @@
 </template>
 
 <script>
+
 export default {
     props: ['id'],
-    data(){
+    data() {
         return {
             selectedCoach: null
-        }
+        };
     },
     computed: {
-        fullName(){
+        fullName() {
             return this.selectedCoach.firstName + ' ' + this.selectedCoach.lastName;
         },
         areas() {
@@ -42,14 +44,12 @@ export default {
         description() {
             return this.selectedCoach.description;
         },
-        contactLink(){
-            return this.$route.path + '/' + this.id + '/contact';
+        contactLink() {
+            return this.$route.path + '/contact';
         }
     },
-    created(){
-        this.selectedCoach = this.$store.getters['coaches/coaches'].find(
-            coach => coach.id === this.id
-        );
+    created() {
+        this.selectedCoach = this.$store.getters['coaches/coaches'].find(coach => coach.id === this.id);
     },
 }
 </script>
